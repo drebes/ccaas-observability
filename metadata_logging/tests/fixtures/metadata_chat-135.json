@@ -1,0 +1,195 @@
+{
+  "id": 135,
+  "lang": "en",
+  "chat_type": "Messaging Inbound (Web Chat)",
+  "session_type": "Messaging Inbound (Web Chat)",
+  "session_type_v2": "Messaging Inbound (Web Chat)",
+  "status": "finished",
+  "created_at": "2025-09-09T13:50:05.000-07:00",
+  "assigned_at": "2025-09-09T13:50:10.000-07:00",
+  "ends_at": "2025-09-09T13:51:11.000-07:00",
+  "updated_at": "2025-09-09T13:51:23.000-07:00",
+  "first_msg_sent_at": null,
+  "last_msg_sent_at": null,
+  "wait_duration": 5,
+  "chat_duration": 59,
+  "verified": false,
+  "rating": null,
+  "has_feedback": false,
+  "out_ticket_id": null,
+  "out_ticket_url": "https://media.ccaiplatform.com/v1/download/88900e6a-76cd-449d-87c6-0524afdbf877",
+  "is_out_ticket_account": false,
+  "fail_reason": null,
+  "provider_type": "twilio_conversations",
+  "provider_channel_id": "CH3e7cd69351964458841002a6029896eb",
+  "message_count": 2,
+  "average_response_time": 0,
+  "longest_response_time": 0,
+  "selected_menu": {
+    "id": 12,
+    "name": "web_3",
+    "parent_id": null,
+    "position": 2,
+    "deleted": false,
+    "menu_type": "web_menu",
+    "hidden": false
+  },
+  "menu_path": {
+    "items_count": 1,
+    "name": "web_3",
+    "materialized_path": "12"
+  },
+  "transcript": false,
+  "agent_info": {
+    "id": 5,
+    "agent_number": null,
+    "email": "jane.smith@example.com",
+    "name": "Jane Smith",
+    "last_name": "Smith",
+    "first_name": "Jane",
+    "avatar_url": "https://avatar.example.com/user/avatar/5/avatar.png"
+  },
+  "end_user": {
+    "id": 19,
+    "identifier": "customer@example.com",
+    "out_contact_id": null
+  },
+  "photos": [],
+  "videos": [],
+  "transfers": [],
+  "participants": [
+    {
+      "id": 323,
+      "type": "end_user",
+      "entry_type": "queue_or_transfer",
+      "user_id": null,
+      "end_user_id": 19,
+      "virtual_agent_id": null,
+      "status": "finished",
+      "fail_reason": "nothing",
+      "connected_at": "2025-09-09T13:50:06.000-07:00",
+      "phone_number": null,
+      "sip_headers": null,
+      "chat_id": 135,
+      "finished_at": "2025-09-09T13:51:11.000-07:00",
+      "chat_duration": 65,
+      "virtual_agent": null,
+      "agent_assist": {
+        "spelling_and_grammar_check": {}
+      }
+    },
+    {
+      "id": 324,
+      "type": "agent",
+      "entry_type": "queue_or_transfer",
+      "user_id": 5,
+      "end_user_id": null,
+      "virtual_agent_id": null,
+      "status": "finished",
+      "fail_reason": "nothing",
+      "connected_at": "2025-09-09T13:50:12.000-07:00",
+      "sip_headers": null,
+      "location": null,
+      "location_id": null,
+      "email": "jane.smith@example.com",
+      "first_name": "Jane",
+      "last_name": "Smith",
+      "middle_name": null,
+      "teams": [],
+      "chat_id": 135,
+      "finished_at": "2025-09-09T13:51:11.000-07:00",
+      "chat_duration": 59,
+      "virtual_agent": null,
+      "agent_assist": {
+        "spelling_and_grammar_check": {}
+      }
+    }
+  ],
+  "handle_durations": [
+    {
+      "id": 69,
+      "agent_id": 5,
+      "acw_duration": 0,
+      "chat_duration": 59,
+      "menu_path_id": 13,
+      "menu_path": "web_3",
+      "lang": "en",
+      "transfer": false,
+      "transfer_id": null,
+      "started_at": "2025-09-09T13:50:12.000-07:00",
+      "ended_at": "2025-09-09T13:51:11.000-07:00",
+      "response_count": 0,
+      "response_time_total": 0,
+      "response_time_max": 0,
+      "response_time_avg": "0.0",
+      "assigned_connection_duration": 2
+    }
+  ],
+  "queue_durations": [
+    {
+      "id": 71,
+      "agent_id": 5,
+      "ended_at": "2025-09-09T13:50:10.000-07:00",
+      "lang": "en",
+      "menu_path_id": 13,
+      "menu_path": "web_3",
+      "queue_duration": 5,
+      "started_at": "2025-09-09T13:50:05.000-07:00",
+      "transfer_cold": null,
+      "transfer": false,
+      "transfer_id": null,
+      "service_level_abandon_time_threshold": 10,
+      "service_level_event": "in_sla",
+      "service_level_target_percent": 90,
+      "service_level_target_time": 60
+    }
+  ],
+  "virtual_agent_handle_durations": [],
+  "virtual_agent_deflected_escalations": [],
+  "consumer_handle_durations": [
+    {
+      "id": 133,
+      "chat_duration": 65,
+      "started_at": "2025-09-09T13:50:06.000-07:00",
+      "ended_at": "2025-09-09T13:51:11.000-07:00",
+      "message_count": 0,
+      "response_count": 0,
+      "response_time_total": 0,
+      "response_time_max": 0,
+      "response_time_avg": 0
+    }
+  ],
+  "consumer_event_durations": [],
+  "offer_type": "cascade",
+  "offer_events": [
+    {
+      "casting_time": "2025-09-09T13:50:05.000-07:00",
+      "group": "Group 1"
+    }
+  ],
+  "answer_type": "manual",
+  "after_hours": false,
+  "transfer_limit": null,
+  "email": "customer@example.com",
+  "feedback": null,
+  "smart_action_text": null,
+  "custom_data_secured": null,
+  "custom_data_not_secured": {
+    "CustomDataOne": {
+      "label": "CustomDataOne",
+      "value": "test1"
+    },
+    "CustomDataTwo": {
+      "label": "CustomDataTwo",
+      "value": "test2"
+    },
+    "CustomDataThree": {
+      "label": "CustomDataThree",
+      "value": "test3"
+    },
+    "CustomAppID": {
+      "label": "CustomAppID",
+      "value": "ccaip-incub-stg"
+    }
+  }
+}

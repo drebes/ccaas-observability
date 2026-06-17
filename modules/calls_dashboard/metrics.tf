@@ -329,10 +329,10 @@ resource "google_logging_metric" "calls_established_v2" {
   }
 
   label_extractors = {
-    "resource_id"     = "EXTRACT(resource.labels.resource_id)"
-    "location"        = "EXTRACT(resource.labels.location)"
-    "call_type"       = "REGEXP_EXTRACT(textPayload, \"Call type \\\\(([^)]+)\\\\)\")"
-    "answer_type"     = "REGEXP_EXTRACT(textPayload, \"Answer type \\\\(([^)]+)\\\\)\")"
+    "resource_id" = "EXTRACT(resource.labels.resource_id)"
+    "location"    = "EXTRACT(resource.labels.location)"
+    "call_type"   = "REGEXP_EXTRACT(textPayload, \"Call type \\\\(([^)]+)\\\\)\")"
+    "answer_type" = "REGEXP_EXTRACT(textPayload, \"Answer type \\\\(([^)]+)\\\\)\")"
   }
 
   project = var.project_id

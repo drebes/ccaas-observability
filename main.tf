@@ -40,3 +40,15 @@ module "ccaas_log_analytics_dashboard" {
   source     = "./modules/analytics_dashboard"
   project_id = var.project_id
 }
+
+module "metadata_logger" {
+  source                  = "./modules/metadata_logger"
+  storage_project_id      = var.metadata_logger.storage_project_id
+  region                  = var.metadata_logger.region
+  gcs_path_configs        = var.metadata_logger.path_configs
+  image_url               = var.metadata_logger.image_url
+  grant_project_iam_roles = var.metadata_logger.grant_project_iam_roles
+  enable_apis             = var.metadata_logger.enable_apis
+  custom_log_name         = var.metadata_logger.custom_log_name
+}
+
