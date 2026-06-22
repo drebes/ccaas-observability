@@ -325,7 +325,7 @@ resource "google_monitoring_dashboard" "log_analytics" {
             title = "2. Interaction Mapping Table"
           }
           width = 48
-          yPos = 40
+          yPos  = 40
         },
         {
           height = 40
@@ -358,7 +358,7 @@ resource "google_monitoring_dashboard" "log_analytics" {
             title = "3. CCaaS Activity Logs"
           }
           width = 48
-          yPos = 80
+          yPos  = 80
         },
         {
           height = 40
@@ -414,7 +414,7 @@ resource "google_monitoring_dashboard" "log_analytics" {
             title = "4. CCaaS Events Logs"
           }
           width = 48
-          yPos = 120
+          yPos  = 120
         },
         {
           height = 40
@@ -447,7 +447,7 @@ resource "google_monitoring_dashboard" "log_analytics" {
             title = "5. Dialogflow Audit Logs"
           }
           width = 48
-          yPos = 160
+          yPos  = 160
         },
         {
           height = 40
@@ -510,7 +510,7 @@ resource "google_monitoring_dashboard" "log_analytics" {
             title = "6. Dialogflow Runtime Logs"
           }
           width = 48
-          yPos = 200
+          yPos  = 200
         },
         {
           height = 48
@@ -523,7 +523,7 @@ resource "google_monitoring_dashboard" "log_analytics" {
             title = "Dashboard Documentation"
           }
           width = 48
-          yPos = 240
+          yPos  = 240
         }
       ]
     }

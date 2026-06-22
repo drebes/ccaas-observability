@@ -1,0 +1,208 @@
+{
+  "id": 987,
+  "lang": "en",
+  "call_type": "Voice Scheduled (API)",
+  "session_type": "Voice Scheduled (API)",
+  "session_type_v2": "Voice Scheduled (API)",
+  "status": "finished",
+  "created_at": "2026-01-23T17:13:49.000-08:00",
+  "queued_at": "2026-01-23T17:14:00.000-08:00",
+  "assigned_at": "2026-01-23T17:14:06.000-08:00",
+  "connected_at": "2026-01-23T17:14:18.000-08:00",
+  "ends_at": "2026-01-23T17:14:25.000-08:00",
+  "scheduled_at": "2026-01-23T17:14:00.000-08:00",
+  "updated_at": "2026-01-23T17:14:27.000-08:00",
+  "wait_duration": 6,
+  "call_duration": 12,
+  "hold_duration": 0,
+  "rating": null,
+  "has_feedback": false,
+  "voip_provider": "deprecated",
+  "out_ticket_id": "500ak00001nkg4MAAQ",
+  "out_ticket_url": "https://crm.example.com/lightning/r/Case/500ak00001nkg4MAAQ/view",
+  "is_out_ticket_account": false,
+  "verified": false,
+  "recording_url": "https://crm.example.com/sfc/servlet.shepherd/version/download/068ak00000G9TrBAAV",
+  "recording_permission": "granted",
+  "voicemail_reason": "not_voicemail",
+  "deflection": "no_deflection",
+  "disconnected_by": "disconnected_by_end_user",
+  "fail_reason": "nothing",
+  "fail_details": null,
+  "adapter_fail_code": null,
+  "adapter_fail_message": null,
+  "support_number": null,
+  "selected_menu": {
+    "id": 70,
+    "name": "schedule_call",
+    "parent_id": null,
+    "position": 19,
+    "deleted": false,
+    "menu_type": "web_menu",
+    "hidden": true
+  },
+  "menu_path": {
+    "items_count": 1,
+    "name": "schedule_call",
+    "materialized_path": "70"
+  },
+  "agent_info": {
+    "id": 5,
+    "agent_number": null,
+    "email": "jane.smith@example.com",
+    "name": "Jane Smith",
+    "last_name": "Smith",
+    "first_name": "Jane",
+    "avatar_url": "https://avatar.example.com/user/avatar/5/avatar.png"
+  },
+  "end_user": {
+    "id": 42,
+    "identifier": "91237416-3705-4a43-b3d5-a99278016d75",
+    "out_contact_id": "003ak00000ipFq5AAE"
+  },
+  "photos": [],
+  "videos": [],
+  "transfers": [],
+  "deflection_details": [],
+  "handle_durations": [
+    {
+      "id": 219,
+      "agent_id": 5,
+      "acw_duration": 0,
+      "bcw_duration": 0,
+      "call_duration": 12,
+      "menu_path_id": 83,
+      "menu_path": "schedule_call",
+      "lang": "en",
+      "barged": false,
+      "transfer": false,
+      "transfer_id": null,
+      "transfer_cold": null,
+      "started_at": "2026-01-23T17:14:13.000-08:00",
+      "ended_at": "2026-01-23T17:14:25.000-08:00",
+      "scheduled_at": "2026-01-23T17:14:00.000-08:00",
+      "hold_duration": 0,
+      "assigned_connection_duration": 7
+    }
+  ],
+  "queue_durations": [
+    {
+      "id": 195,
+      "agent_id": 5,
+      "ended_at": "2026-01-23T17:14:06.000-08:00",
+      "lang": "en",
+      "menu_path_id": 83,
+      "menu_path": "schedule_call",
+      "queue_duration": 6,
+      "started_at": "2026-01-23T17:14:00.000-08:00",
+      "transfer_cold": null,
+      "transfer": false,
+      "transfer_id": null,
+      "service_level_abandon_time_threshold": 0,
+      "service_level_event": "in_sla",
+      "service_level_target_percent": 90,
+      "service_level_target_time": 60
+    }
+  ],
+  "virtual_agent_deflected_escalations": [],
+  "virtual_agent_handle_durations": [],
+  "consumer_handle_durations": [
+    {
+      "id": 723,
+      "call_duration": 8,
+      "hold_duration": 0,
+      "started_at": "2026-01-23T17:14:17.000-08:00",
+      "ended_at": "2026-01-23T17:14:25.000-08:00"
+    }
+  ],
+  "consumer_event_durations": [],
+  "consumer_in_menu_durations": [],
+  "participants": [
+    {
+      "id": 2050,
+      "type": "end_user",
+      "entry_type": "queue_or_transfer",
+      "user_id": null,
+      "end_user_id": 42,
+      "virtual_agent_id": null,
+      "status": "finished",
+      "fail_reason": "nothing",
+      "connected_at": "2026-01-23T17:14:17.000-08:00",
+      "phone_number": "+15550100100",
+      "sip_headers": null,
+      "call_id": 987,
+      "call_duration": 8,
+      "hold_duration": null,
+      "ended_at": "2026-01-23T17:14:25.000-08:00",
+      "agent_assist": null,
+      "virtual_agent": null,
+      "adapter_fail_code": null,
+      "adapter_fail_message": null
+    },
+    {
+      "id": 2051,
+      "type": "agent",
+      "entry_type": "queue_or_transfer",
+      "user_id": 5,
+      "end_user_id": null,
+      "virtual_agent_id": null,
+      "status": "finished",
+      "fail_reason": "nothing",
+      "connected_at": "2026-01-23T17:14:13.000-08:00",
+      "sip_headers": null,
+      "location": {
+        "created_at": "2025-10-17T08:32:47.000-07:00",
+        "id": 2,
+        "lang": "en",
+        "location": "en-US",
+        "pop_settings": {
+          "twilio": [],
+          "nexmo": [],
+          "telnyx": []
+        },
+        "updated_at": "2025-10-17T08:32:47.000-07:00"
+      },
+      "location_id": 2,
+      "email": "jane.smith@example.com",
+      "first_name": "Jane",
+      "last_name": "Smith",
+      "middle_name": null,
+      "teams": [],
+      "call_id": 987,
+      "call_duration": 12,
+      "hold_duration": null,
+      "ended_at": "2026-01-23T17:14:25.000-08:00",
+      "agent_assist": null,
+      "virtual_agent": null,
+      "adapter_fail_code": null,
+      "adapter_fail_message": null
+    }
+  ],
+  "recordings": [
+    {
+      "id": 903,
+      "call_id": 987,
+      "conference_sid": "CON-a4c2a629-3ee5-48f7-89ca-044c913a7cbf",
+      "duration": 13,
+      "recording_type": "default",
+      "redaction_times": [],
+      "started_at": "2026-01-23T17:14:12.000-08:00"
+    }
+  ],
+  "offer_type": "cascade",
+  "offer_events": [
+    {
+      "casting_time": "2026-01-23T17:14:00.000-08:00",
+      "group": "Group 1"
+    }
+  ],
+  "answer_type": "manual",
+  "outbound_number": "+15550100200",
+  "wait_time_sms": [],
+  "in_call_sms": [],
+  "email": null,
+  "feedback": null,
+  "smart_action_text": null,
+  "custom_data_secured": null,
+  "custom_data_not_secured": null
+}

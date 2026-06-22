@@ -1,0 +1,455 @@
+[
+  {
+    "insertId": "3668c8eebcb575827c24b5241894015b",
+    "jsonPayload": {
+      "event": {
+        "name": "chat_created",
+        "gcs_source": "gs://ccaip-iva-artifact-9a/iva-prober-gxjs4ra.ew1/metadata/chat-135.json",
+        "payload": {
+          "chat": {
+            "id": 135,
+            "type": "Messaging Inbound (Web Chat)",
+            "lang": "en"
+          }
+        }
+      },
+      "message": "Milestone: chat_created (chat 135)"
+    },
+    "resource": {
+      "type": "contactcenteraiplatform.googleapis.com/ContactCenter",
+      "labels": {
+        "location": "europe-west1",
+        "resource_container": "ccaip-probing-infra-u8xi7u",
+        "resource_id": "iva"
+      }
+    },
+    "timestamp": "2025-09-09T20:50:05Z",
+    "severity": "INFO",
+    "logName": "projects/ccaip-probing-infra-u8xi7u/logs/contactcenteraiplatform.googleapis.com%2Fmetadata"
+  },
+  {
+    "insertId": "27c6e6b9b0475898b7dbe2ad1924fea1",
+    "jsonPayload": {
+      "event": {
+        "name": "chat_assigned",
+        "gcs_source": "gs://ccaip-iva-artifact-9a/iva-prober-gxjs4ra.ew1/metadata/chat-135.json",
+        "payload": {
+          "chat": {
+            "id": 135,
+            "type": "Messaging Inbound (Web Chat)",
+            "lang": "en"
+          }
+        }
+      },
+      "message": "Milestone: chat_assigned (chat 135)"
+    },
+    "resource": {
+      "type": "contactcenteraiplatform.googleapis.com/ContactCenter",
+      "labels": {
+        "location": "europe-west1",
+        "resource_container": "ccaip-probing-infra-u8xi7u",
+        "resource_id": "iva"
+      }
+    },
+    "timestamp": "2025-09-09T20:50:10Z",
+    "severity": "INFO",
+    "logName": "projects/ccaip-probing-infra-u8xi7u/logs/contactcenteraiplatform.googleapis.com%2Fmetadata"
+  },
+  {
+    "insertId": "3440ffc9f266585683b704f29513a0cf",
+    "jsonPayload": {
+      "event": {
+        "name": "chat_ended",
+        "gcs_source": "gs://ccaip-iva-artifact-9a/iva-prober-gxjs4ra.ew1/metadata/chat-135.json",
+        "payload": {
+          "chat": {
+            "id": 135,
+            "type": "Messaging Inbound (Web Chat)",
+            "lang": "en",
+            "status": "finished"
+          },
+          "details": {
+            "rating": null,
+            "feedback": null,
+            "fail_reason": null,
+            "fail_details": null,
+            "sub_status": null,
+            "disconnected_by": null,
+            "wait_duration": 5,
+            "call_duration": null,
+            "hold_duration": null,
+            "in_queue_wait_time_va": null,
+            "automation_redirection": null
+          }
+        }
+      },
+      "message": "Milestone: chat_ended (chat 135)"
+    },
+    "resource": {
+      "type": "contactcenteraiplatform.googleapis.com/ContactCenter",
+      "labels": {
+        "location": "europe-west1",
+        "resource_container": "ccaip-probing-infra-u8xi7u",
+        "resource_id": "iva"
+      }
+    },
+    "timestamp": "2025-09-09T20:51:11Z",
+    "severity": "INFO",
+    "logName": "projects/ccaip-probing-infra-u8xi7u/logs/contactcenteraiplatform.googleapis.com%2Fmetadata"
+  },
+  {
+    "insertId": "4b868d7d79b535bde33a1654130032eb",
+    "jsonPayload": {
+      "event": {
+        "name": "chat_updated",
+        "gcs_source": "gs://ccaip-iva-artifact-9a/iva-prober-gxjs4ra.ew1/metadata/chat-135.json",
+        "payload": {
+          "chat": {
+            "id": 135,
+            "type": "Messaging Inbound (Web Chat)",
+            "lang": "en"
+          }
+        }
+      },
+      "message": "Milestone: chat_updated (chat 135)"
+    },
+    "resource": {
+      "type": "contactcenteraiplatform.googleapis.com/ContactCenter",
+      "labels": {
+        "location": "europe-west1",
+        "resource_container": "ccaip-probing-infra-u8xi7u",
+        "resource_id": "iva"
+      }
+    },
+    "timestamp": "2025-09-09T20:51:23Z",
+    "severity": "INFO",
+    "logName": "projects/ccaip-probing-infra-u8xi7u/logs/contactcenteraiplatform.googleapis.com%2Fmetadata"
+  },
+  {
+    "insertId": "5ee0f7969cb23250e50e70dcf5114d49",
+    "jsonPayload": {
+      "event": {
+        "name": "consumer_handle_started",
+        "gcs_source": "gs://ccaip-iva-artifact-9a/iva-prober-gxjs4ra.ew1/metadata/chat-135.json",
+        "payload": {
+          "chat": {
+            "id": 135,
+            "type": "Messaging Inbound (Web Chat)",
+            "lang": "en"
+          },
+          "consumer_handle": {
+            "id": 133
+          }
+        }
+      },
+      "message": "Milestone: consumer_handle_started (chat 135)"
+    },
+    "resource": {
+      "type": "contactcenteraiplatform.googleapis.com/ContactCenter",
+      "labels": {
+        "location": "europe-west1",
+        "resource_container": "ccaip-probing-infra-u8xi7u",
+        "resource_id": "iva"
+      }
+    },
+    "timestamp": "2025-09-09T20:50:06Z",
+    "severity": "INFO",
+    "logName": "projects/ccaip-probing-infra-u8xi7u/logs/contactcenteraiplatform.googleapis.com%2Fmetadata"
+  },
+  {
+    "insertId": "ff861cf41ff09aad2726554ce0f98e06",
+    "jsonPayload": {
+      "event": {
+        "name": "consumer_handle_ended",
+        "gcs_source": "gs://ccaip-iva-artifact-9a/iva-prober-gxjs4ra.ew1/metadata/chat-135.json",
+        "payload": {
+          "chat": {
+            "id": 135,
+            "type": "Messaging Inbound (Web Chat)",
+            "lang": "en"
+          },
+          "consumer_handle": {
+            "id": 133,
+            "chat_duration": 65,
+            "message_count": 0,
+            "response_count": 0,
+            "response_time_total": 0,
+            "response_time_max": 0,
+            "response_time_avg": 0
+          }
+        }
+      },
+      "message": "Milestone: consumer_handle_ended (chat 135)"
+    },
+    "resource": {
+      "type": "contactcenteraiplatform.googleapis.com/ContactCenter",
+      "labels": {
+        "location": "europe-west1",
+        "resource_container": "ccaip-probing-infra-u8xi7u",
+        "resource_id": "iva"
+      }
+    },
+    "timestamp": "2025-09-09T20:51:11Z",
+    "severity": "INFO",
+    "logName": "projects/ccaip-probing-infra-u8xi7u/logs/contactcenteraiplatform.googleapis.com%2Fmetadata"
+  },
+  {
+    "insertId": "91c974fda728702307faad354b980f5f",
+    "jsonPayload": {
+      "event": {
+        "name": "participant_connected",
+        "gcs_source": "gs://ccaip-iva-artifact-9a/iva-prober-gxjs4ra.ew1/metadata/chat-135.json",
+        "payload": {
+          "chat": {
+            "id": 135,
+            "type": "Messaging Inbound (Web Chat)",
+            "lang": "en"
+          },
+          "participant": {
+            "id": 323,
+            "type": "end_user",
+            "entry_type": "queue_or_transfer",
+            "user_id": null,
+            "end_user_id": 19,
+            "virtual_agent_id": null,
+            "phone_number": null,
+            "sip_headers": null,
+            "chat_id": 135,
+            "virtual_agent": null,
+            "agent_assist": {
+              "spelling_and_grammar_check": {}
+            }
+          }
+        }
+      },
+      "message": "Milestone: participant_connected (chat 135)"
+    },
+    "resource": {
+      "type": "contactcenteraiplatform.googleapis.com/ContactCenter",
+      "labels": {
+        "location": "europe-west1",
+        "resource_container": "ccaip-probing-infra-u8xi7u",
+        "resource_id": "iva"
+      }
+    },
+    "timestamp": "2025-09-09T20:50:06Z",
+    "severity": "INFO",
+    "logName": "projects/ccaip-probing-infra-u8xi7u/logs/contactcenteraiplatform.googleapis.com%2Fmetadata"
+  },
+  {
+    "insertId": "38226537e5dbebd91130345b6f55ce36",
+    "jsonPayload": {
+      "event": {
+        "name": "participant_connected",
+        "gcs_source": "gs://ccaip-iva-artifact-9a/iva-prober-gxjs4ra.ew1/metadata/chat-135.json",
+        "payload": {
+          "chat": {
+            "id": 135,
+            "type": "Messaging Inbound (Web Chat)",
+            "lang": "en"
+          },
+          "participant": {
+            "id": 324,
+            "type": "agent",
+            "entry_type": "queue_or_transfer",
+            "user_id": 5,
+            "end_user_id": null,
+            "virtual_agent_id": null,
+            "sip_headers": null,
+            "location": null,
+            "location_id": null,
+            "email": "<REDACTED>",
+            "first_name": "<REDACTED>",
+            "last_name": "<REDACTED>",
+            "middle_name": null,
+            "teams": [],
+            "chat_id": 135,
+            "virtual_agent": null,
+            "agent_assist": {
+              "spelling_and_grammar_check": {}
+            }
+          }
+        }
+      },
+      "message": "Milestone: participant_connected (chat 135)"
+    },
+    "resource": {
+      "type": "contactcenteraiplatform.googleapis.com/ContactCenter",
+      "labels": {
+        "location": "europe-west1",
+        "resource_container": "ccaip-probing-infra-u8xi7u",
+        "resource_id": "iva"
+      }
+    },
+    "timestamp": "2025-09-09T20:50:12Z",
+    "severity": "INFO",
+    "logName": "projects/ccaip-probing-infra-u8xi7u/logs/contactcenteraiplatform.googleapis.com%2Fmetadata"
+  },
+  {
+    "insertId": "b1dbb4170929cd1274f4103ac6545736",
+    "jsonPayload": {
+      "event": {
+        "name": "queue_entry_started",
+        "gcs_source": "gs://ccaip-iva-artifact-9a/iva-prober-gxjs4ra.ew1/metadata/chat-135.json",
+        "payload": {
+          "chat": {
+            "id": 135,
+            "type": "Messaging Inbound (Web Chat)",
+            "lang": "en"
+          },
+          "queue_entry": {
+            "id": 71,
+            "lang": "en",
+            "menu_path_id": 13,
+            "menu_path": "web_3",
+            "service_level_abandon_time_threshold": 10,
+            "service_level_target_percent": 90,
+            "service_level_target_time": 60
+          }
+        }
+      },
+      "message": "Milestone: queue_entry_started (chat 135)"
+    },
+    "resource": {
+      "type": "contactcenteraiplatform.googleapis.com/ContactCenter",
+      "labels": {
+        "location": "europe-west1",
+        "resource_container": "ccaip-probing-infra-u8xi7u",
+        "resource_id": "iva"
+      }
+    },
+    "timestamp": "2025-09-09T20:50:05Z",
+    "severity": "INFO",
+    "logName": "projects/ccaip-probing-infra-u8xi7u/logs/contactcenteraiplatform.googleapis.com%2Fmetadata"
+  },
+  {
+    "insertId": "36361d6653d614f29be53cd6089859e8",
+    "jsonPayload": {
+      "event": {
+        "name": "queue_entry_completed",
+        "gcs_source": "gs://ccaip-iva-artifact-9a/iva-prober-gxjs4ra.ew1/metadata/chat-135.json",
+        "payload": {
+          "chat": {
+            "id": 135,
+            "type": "Messaging Inbound (Web Chat)",
+            "lang": "en"
+          },
+          "queue_entry": {
+            "id": 71,
+            "agent_id": 5,
+            "lang": "en",
+            "menu_path_id": 13,
+            "menu_path": "web_3",
+            "queue_duration": 5,
+            "transfer_cold": null,
+            "transfer": false,
+            "transfer_id": null,
+            "service_level_abandon_time_threshold": 10,
+            "service_level_event": "in_sla",
+            "service_level_target_percent": 90,
+            "service_level_target_time": 60
+          }
+        }
+      },
+      "message": "Milestone: queue_entry_completed (chat 135)"
+    },
+    "resource": {
+      "type": "contactcenteraiplatform.googleapis.com/ContactCenter",
+      "labels": {
+        "location": "europe-west1",
+        "resource_container": "ccaip-probing-infra-u8xi7u",
+        "resource_id": "iva"
+      }
+    },
+    "timestamp": "2025-09-09T20:50:10Z",
+    "severity": "INFO",
+    "logName": "projects/ccaip-probing-infra-u8xi7u/logs/contactcenteraiplatform.googleapis.com%2Fmetadata"
+  },
+  {
+    "insertId": "082c415d9caa7c20b117218d419eb474",
+    "jsonPayload": {
+      "event": {
+        "name": "agent_handle_started",
+        "gcs_source": "gs://ccaip-iva-artifact-9a/iva-prober-gxjs4ra.ew1/metadata/chat-135.json",
+        "payload": {
+          "chat": {
+            "id": 135,
+            "type": "Messaging Inbound (Web Chat)",
+            "lang": "en"
+          },
+          "agent_handle": {
+            "id": 69,
+            "agent_id": 5,
+            "chat_duration": 59,
+            "menu_path_id": 13,
+            "menu_path": "web_3",
+            "lang": "en",
+            "transfer": false,
+            "transfer_id": null,
+            "response_count": 0,
+            "response_time_total": 0,
+            "response_time_max": 0,
+            "response_time_avg": "0.0",
+            "assigned_connection_duration": 2
+          }
+        }
+      },
+      "message": "Milestone: agent_handle_started (chat 135)"
+    },
+    "resource": {
+      "type": "contactcenteraiplatform.googleapis.com/ContactCenter",
+      "labels": {
+        "location": "europe-west1",
+        "resource_container": "ccaip-probing-infra-u8xi7u",
+        "resource_id": "iva"
+      }
+    },
+    "timestamp": "2025-09-09T20:50:12Z",
+    "severity": "INFO",
+    "logName": "projects/ccaip-probing-infra-u8xi7u/logs/contactcenteraiplatform.googleapis.com%2Fmetadata"
+  },
+  {
+    "insertId": "0e176c085a01e524b7061850562502fc",
+    "jsonPayload": {
+      "event": {
+        "name": "agent_handle_completed",
+        "gcs_source": "gs://ccaip-iva-artifact-9a/iva-prober-gxjs4ra.ew1/metadata/chat-135.json",
+        "payload": {
+          "chat": {
+            "id": 135,
+            "type": "Messaging Inbound (Web Chat)",
+            "lang": "en"
+          },
+          "agent_handle": {
+            "id": 69,
+            "agent_id": 5,
+            "acw_duration": 0,
+            "chat_duration": 59,
+            "menu_path_id": 13,
+            "menu_path": "web_3",
+            "lang": "en",
+            "transfer": false,
+            "transfer_id": null,
+            "response_count": 0,
+            "response_time_total": 0,
+            "response_time_max": 0,
+            "response_time_avg": "0.0",
+            "assigned_connection_duration": 2
+          }
+        }
+      },
+      "message": "Milestone: agent_handle_completed (chat 135)"
+    },
+    "resource": {
+      "type": "contactcenteraiplatform.googleapis.com/ContactCenter",
+      "labels": {
+        "location": "europe-west1",
+        "resource_container": "ccaip-probing-infra-u8xi7u",
+        "resource_id": "iva"
+      }
+    },
+    "timestamp": "2025-09-09T20:51:11Z",
+    "severity": "INFO",
+    "logName": "projects/ccaip-probing-infra-u8xi7u/logs/contactcenteraiplatform.googleapis.com%2Fmetadata"
+  }
+]

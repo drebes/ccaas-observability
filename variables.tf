@@ -27,3 +27,40 @@ variable "escalated_chat_rate_upper_bound" {
   type    = number
   default = 110
 }
+
+variable "enable_metadata_logger" {
+  type        = bool
+  default     = false
+  description = "Whether to enable the metadata logger."
+}
+
+variable "metadata_logger" {
+  type = object({
+    # The regional location to deploy the Cloud Run service.
+    region = optional(string, "us-central1")
+
+    # The Google Cloud project ID hosting the GCS buckets, Eventarc, and Cloud Run service.
+    storage_project_id = optional(string)
+
+    # A map of GCS path URIs (e.g., 'gs://bucket/path/') to their target logging configurations.
+    path_configs = optional(map(object({
+      ccaas_project_id        = string
+      ccaas_resource_location = string
+      ccaas_resource_id       = string
+    })), {})
+
+    # The container image path in Artifact Registry for the metadata-logger Cloud Run service.
+    image_url = optional(string)
+
+    # Whether to let the metadata_logger module automatically create project-level IAM role bindings.
+    grant_project_iam_roles = optional(bool, true)
+
+    # Whether to let the metadata_logger module automatically enable project APIs.
+    enable_apis = optional(bool, true)
+
+    # The identifier for custom logs.
+    custom_log_name = optional(string, "contactcenteraiplatform.googleapis.com%2Fmetadata")
+  })
+  default     = {}
+  description = "Configuration settings for the metadata logger."
+}

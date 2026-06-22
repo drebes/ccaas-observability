@@ -29,6 +29,7 @@ project.
 *   `df_dashboard`: Creates logs-based metrics and a dashboard to monitor
     Dialogflow-specific metrics, including Flow execution, Playbook usage, and
     Sentiment Analysis.
+*   `metadata_logger`: Sets up the Cloud Run service, Eventarc trigger, GCS permissions, and project IAM roles to ingest and parse session metadata uploads into structured milestone logs. *(Optional, conditionally enabled via `enable_metadata_logger`)*
 
 ## Creating the Dashboards and Metrics
 
@@ -43,7 +44,14 @@ project.
         "Current Established Call Rate" gauge in the Calls dashboard.
     *   `escalated_chat_rate_upper_bound`: (number) The upper bound for the
         "Current Escalated Chat Rate" gauge in the Chats dashboard.
-
+    *   `enable_metadata_logger`: (boolean, optional) Whether to deploy the metadata logger. Defaults to `false`.
+    *   `metadata_logger`: (object) The configuration object for deploying the
+        metadata milestone logger. This is only required if `enable_metadata_logger` is set to `true`. This contains:
+        *   `storage_project_id`: (string) The GCP project ID hosting the central prober GCS buckets, Eventarc trigger, and Cloud Run service.
+        *   `region`: (string) Location for the Cloud Run deployment (e.g. `"europe-west1"`).
+        *   `image_url`: (string) The Artifact Registry URI of the compiled container image (e.g. `"europe-docker.pkg.dev/.../metadata-logger:latest"`).
+        *   `custom_log_name`: (string, optional) Override log name for extracted milestones in Cloud Logging (defaults to `"<PROJECT_ID>/logs/contactcenteraiplatform.googleapis.com%2Fmetadata"`).
+        *   `path_configs`: (map of object) A mapping of source GCS path URIs (e.g., `"gs://bucket/path/"`) to target Contact Center resources (with `ccaas_project_id`, `ccaas_resource_location`, and `ccaas_resource_id`).
 
     Optional variables:
 
@@ -57,19 +65,28 @@ project.
     Create a file named `project.auto.tfvars` in this directory with the
     following content, replacing the placeholder values:
 
-    ```
-    project_id = "<YOUR_GCP_PROJECT_ID>"
+    ```hcl
+    project_id                        = "<YOUR_GCP_PROJECT_ID>"
     established_call_rate_upper_bound = 100
-    escalated_chat_rate_upper_bound = 100
-    # Optional log_bucket example:
-    # log_bucket = {
-    #   location = "global"
-    #   name     = "_Default"
-    # }
-    ```
+    escalated_chat_rate_upper_bound   = 100
 
-    *Example:* `project_id = "ccaip-probing-logs-zk0hwo"
-    established_call_rate_upper_bound = 50 escalated_chat_rate_upper_bound = 20`
+    # Set to true to deploy the metadata logger (defaults to false)
+    enable_metadata_logger = true
+
+    # Metadata Logger configuration (only required if enable_metadata_logger is true)
+    metadata_logger = {
+      storage_project_id = "<PROBER_GCP_PROJECT_ID>"
+      region             = "europe-west1"
+      image_url          = "europe-docker.pkg.dev/<PROBER_GCP_PROJECT_ID>/metadata-logger/metadata-logger:latest"
+      path_configs = {
+        "gs://ccaip-iva-artifact-9a/iva-prober-gxjs4ra.ew1/metadata/" = {
+          ccaas_project_id        = "<TARGET_PROJECT_ID>"
+          ccaas_resource_location = "europe-west1"
+          ccaas_resource_id       = "iva"
+        }
+      }
+    }
+    ```
 
 3.  **Plan and Apply:** `terraform plan` Review the plan to ensure it
     creates the expected logs-based metrics and dashboards.
@@ -128,6 +145,12 @@ For detailed usage and examples, please refer to the `README.md` within the `int
 
 1.  Use `interaction_tracing/get_all_interaction_logs.py` to gather combined logs for a specific interaction.
 2.  Use `interaction_tracing/generate_interaction_timeline.py` to create a visual timeline from the logs.
+
+## Metadata Logging Service
+
+Beyond dashboards, this repository includes the `metadata_logging/` service. It is a Cloud Run-based telemetry ingestion pipeline that extracts structured contact center milestones (such as call creation, queue durations, agent handle events, and transfers) from GCS metadata uploads and logs them as structured entries in Google Cloud Logging.
+
+For detailed usage, local regression testing instructions, build steps, and link directories of all parsed milestones, see the [Metadata Logging Service README](metadata_logging/README.md).
 
 ## Permissions
 

@@ -11,3 +11,12 @@ zip_repo.sh
 # Python cache
 __pycache__/
 *.pyc
+
+# Jetski
+.jetskicli/
+
+# Terraform CLI config
+.terraform.d/
+
+# Metadata
+metadata/

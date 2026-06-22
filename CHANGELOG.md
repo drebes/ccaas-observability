@@ -1,3 +1,16 @@
+## Release 2026-05
+
+**✨ New Features & Modules**
+*   **CCaaS Telemetry Milestone Logger:** Added an automated GCS ingestion pipeline (Terraform module, Eventarc trigger, and Cloud Run service) to transform raw session metadata uploads into structured telemetry milestones. This brings call/chat interaction metrics that were previously locked in metadata files directly into Google Cloud Observability (Cloud Logging and Monitoring).
+    *   **Consistently Matched Schemas:** The generated logs conform to a strict, well-defined schema (published under `metadata_logging/schema` and `docs`) where fields are consistently mapped to the same path, simplifying log-based metrics extraction.
+    *   **Regression Testing & Paths Routing:** Includes a zero-dependency local regression test suite (`test_milestones.py`) using PII-redacted fixtures, and supports dynamic path-to-resource routing (`path_configs`) to handle multi-tenant setups.
+    *   **Dashboards & Metrics:** Standardized log-based metrics and dashboards built on top of these milestone logs will be delivered in an upcoming release based on customer feedback.
+
+**🙏 A shoutout to**
+*   Our partners who generously provided sample CCaaS session metadata payloads to help us validate, generalize, and refine the milestone schemas!
+
+---
+
 ## Release 2026-04
 
 **✨ New Features & Modules**

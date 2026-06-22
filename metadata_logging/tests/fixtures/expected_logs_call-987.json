@@ -1,0 +1,691 @@
+[
+  {
+    "insertId": "2ea5b880780923caa34d570394a8e9ff",
+    "jsonPayload": {
+      "event": {
+        "name": "call_created",
+        "gcs_source": "gs://ccaip-iva-artifact-9a/iva-prober-gxjs4ra.ew1/metadata/call-987.json",
+        "payload": {
+          "call": {
+            "id": 987,
+            "type": "Voice Scheduled (API)",
+            "lang": "en"
+          }
+        }
+      },
+      "message": "Milestone: call_created (call 987)"
+    },
+    "resource": {
+      "type": "contactcenteraiplatform.googleapis.com/ContactCenter",
+      "labels": {
+        "location": "europe-west1",
+        "resource_container": "ccaip-probing-infra-u8xi7u",
+        "resource_id": "iva"
+      }
+    },
+    "timestamp": "2026-01-24T01:13:49Z",
+    "severity": "INFO",
+    "logName": "projects/ccaip-probing-infra-u8xi7u/logs/contactcenteraiplatform.googleapis.com%2Fmetadata"
+  },
+  {
+    "insertId": "a216da889af11b26bda7b0f83f4728e6",
+    "jsonPayload": {
+      "event": {
+        "name": "call_queued",
+        "gcs_source": "gs://ccaip-iva-artifact-9a/iva-prober-gxjs4ra.ew1/metadata/call-987.json",
+        "payload": {
+          "call": {
+            "id": 987,
+            "type": "Voice Scheduled (API)",
+            "lang": "en"
+          }
+        }
+      },
+      "message": "Milestone: call_queued (call 987)"
+    },
+    "resource": {
+      "type": "contactcenteraiplatform.googleapis.com/ContactCenter",
+      "labels": {
+        "location": "europe-west1",
+        "resource_container": "ccaip-probing-infra-u8xi7u",
+        "resource_id": "iva"
+      }
+    },
+    "timestamp": "2026-01-24T01:14:00Z",
+    "severity": "INFO",
+    "logName": "projects/ccaip-probing-infra-u8xi7u/logs/contactcenteraiplatform.googleapis.com%2Fmetadata"
+  },
+  {
+    "insertId": "862770c9592ddadfc3af7c780b989a15",
+    "jsonPayload": {
+      "event": {
+        "name": "call_assigned",
+        "gcs_source": "gs://ccaip-iva-artifact-9a/iva-prober-gxjs4ra.ew1/metadata/call-987.json",
+        "payload": {
+          "call": {
+            "id": 987,
+            "type": "Voice Scheduled (API)",
+            "lang": "en"
+          }
+        }
+      },
+      "message": "Milestone: call_assigned (call 987)"
+    },
+    "resource": {
+      "type": "contactcenteraiplatform.googleapis.com/ContactCenter",
+      "labels": {
+        "location": "europe-west1",
+        "resource_container": "ccaip-probing-infra-u8xi7u",
+        "resource_id": "iva"
+      }
+    },
+    "timestamp": "2026-01-24T01:14:06Z",
+    "severity": "INFO",
+    "logName": "projects/ccaip-probing-infra-u8xi7u/logs/contactcenteraiplatform.googleapis.com%2Fmetadata"
+  },
+  {
+    "insertId": "847d2209907a115bb71d1e700368d573",
+    "jsonPayload": {
+      "event": {
+        "name": "call_connected",
+        "gcs_source": "gs://ccaip-iva-artifact-9a/iva-prober-gxjs4ra.ew1/metadata/call-987.json",
+        "payload": {
+          "call": {
+            "id": 987,
+            "type": "Voice Scheduled (API)",
+            "lang": "en"
+          }
+        }
+      },
+      "message": "Milestone: call_connected (call 987)"
+    },
+    "resource": {
+      "type": "contactcenteraiplatform.googleapis.com/ContactCenter",
+      "labels": {
+        "location": "europe-west1",
+        "resource_container": "ccaip-probing-infra-u8xi7u",
+        "resource_id": "iva"
+      }
+    },
+    "timestamp": "2026-01-24T01:14:18Z",
+    "severity": "INFO",
+    "logName": "projects/ccaip-probing-infra-u8xi7u/logs/contactcenteraiplatform.googleapis.com%2Fmetadata"
+  },
+  {
+    "insertId": "22ed4f88ece878ad11649495ad6008cb",
+    "jsonPayload": {
+      "event": {
+        "name": "call_ended",
+        "gcs_source": "gs://ccaip-iva-artifact-9a/iva-prober-gxjs4ra.ew1/metadata/call-987.json",
+        "payload": {
+          "call": {
+            "id": 987,
+            "type": "Voice Scheduled (API)",
+            "lang": "en",
+            "status": "finished"
+          },
+          "details": {
+            "rating": null,
+            "feedback": null,
+            "fail_reason": "nothing",
+            "fail_details": null,
+            "sub_status": null,
+            "disconnected_by": "disconnected_by_end_user",
+            "wait_duration": 6,
+            "call_duration": 12,
+            "hold_duration": 0,
+            "in_queue_wait_time_va": null,
+            "automation_redirection": null
+          }
+        }
+      },
+      "message": "Milestone: call_ended (call 987)"
+    },
+    "resource": {
+      "type": "contactcenteraiplatform.googleapis.com/ContactCenter",
+      "labels": {
+        "location": "europe-west1",
+        "resource_container": "ccaip-probing-infra-u8xi7u",
+        "resource_id": "iva"
+      }
+    },
+    "timestamp": "2026-01-24T01:14:25Z",
+    "severity": "INFO",
+    "logName": "projects/ccaip-probing-infra-u8xi7u/logs/contactcenteraiplatform.googleapis.com%2Fmetadata"
+  },
+  {
+    "insertId": "bd862517183c12ff58db26cc2a5c1e81",
+    "jsonPayload": {
+      "event": {
+        "name": "call_scheduled",
+        "gcs_source": "gs://ccaip-iva-artifact-9a/iva-prober-gxjs4ra.ew1/metadata/call-987.json",
+        "payload": {
+          "call": {
+            "id": 987,
+            "type": "Voice Scheduled (API)",
+            "lang": "en"
+          }
+        }
+      },
+      "message": "Milestone: call_scheduled (call 987)"
+    },
+    "resource": {
+      "type": "contactcenteraiplatform.googleapis.com/ContactCenter",
+      "labels": {
+        "location": "europe-west1",
+        "resource_container": "ccaip-probing-infra-u8xi7u",
+        "resource_id": "iva"
+      }
+    },
+    "timestamp": "2026-01-24T01:14:00Z",
+    "severity": "INFO",
+    "logName": "projects/ccaip-probing-infra-u8xi7u/logs/contactcenteraiplatform.googleapis.com%2Fmetadata"
+  },
+  {
+    "insertId": "e600cc6fb0e5ede14fed7d792e9254dd",
+    "jsonPayload": {
+      "event": {
+        "name": "call_updated",
+        "gcs_source": "gs://ccaip-iva-artifact-9a/iva-prober-gxjs4ra.ew1/metadata/call-987.json",
+        "payload": {
+          "call": {
+            "id": 987,
+            "type": "Voice Scheduled (API)",
+            "lang": "en"
+          }
+        }
+      },
+      "message": "Milestone: call_updated (call 987)"
+    },
+    "resource": {
+      "type": "contactcenteraiplatform.googleapis.com/ContactCenter",
+      "labels": {
+        "location": "europe-west1",
+        "resource_container": "ccaip-probing-infra-u8xi7u",
+        "resource_id": "iva"
+      }
+    },
+    "timestamp": "2026-01-24T01:14:27Z",
+    "severity": "INFO",
+    "logName": "projects/ccaip-probing-infra-u8xi7u/logs/contactcenteraiplatform.googleapis.com%2Fmetadata"
+  },
+  {
+    "insertId": "ba0832e5339a03d398ac4b509e453ed1",
+    "jsonPayload": {
+      "event": {
+        "name": "consumer_handle_started",
+        "gcs_source": "gs://ccaip-iva-artifact-9a/iva-prober-gxjs4ra.ew1/metadata/call-987.json",
+        "payload": {
+          "call": {
+            "id": 987,
+            "type": "Voice Scheduled (API)",
+            "lang": "en"
+          },
+          "consumer_handle": {
+            "id": 723
+          }
+        }
+      },
+      "message": "Milestone: consumer_handle_started (call 987)"
+    },
+    "resource": {
+      "type": "contactcenteraiplatform.googleapis.com/ContactCenter",
+      "labels": {
+        "location": "europe-west1",
+        "resource_container": "ccaip-probing-infra-u8xi7u",
+        "resource_id": "iva"
+      }
+    },
+    "timestamp": "2026-01-24T01:14:17Z",
+    "severity": "INFO",
+    "logName": "projects/ccaip-probing-infra-u8xi7u/logs/contactcenteraiplatform.googleapis.com%2Fmetadata"
+  },
+  {
+    "insertId": "580d12533ed823a7b99b6be9ca058687",
+    "jsonPayload": {
+      "event": {
+        "name": "consumer_handle_ended",
+        "gcs_source": "gs://ccaip-iva-artifact-9a/iva-prober-gxjs4ra.ew1/metadata/call-987.json",
+        "payload": {
+          "call": {
+            "id": 987,
+            "type": "Voice Scheduled (API)",
+            "lang": "en"
+          },
+          "consumer_handle": {
+            "id": 723,
+            "call_duration": 8,
+            "hold_duration": 0
+          }
+        }
+      },
+      "message": "Milestone: consumer_handle_ended (call 987)"
+    },
+    "resource": {
+      "type": "contactcenteraiplatform.googleapis.com/ContactCenter",
+      "labels": {
+        "location": "europe-west1",
+        "resource_container": "ccaip-probing-infra-u8xi7u",
+        "resource_id": "iva"
+      }
+    },
+    "timestamp": "2026-01-24T01:14:25Z",
+    "severity": "INFO",
+    "logName": "projects/ccaip-probing-infra-u8xi7u/logs/contactcenteraiplatform.googleapis.com%2Fmetadata"
+  },
+  {
+    "insertId": "c8438ba341293cbdacab32b7e7cdc59b",
+    "jsonPayload": {
+      "event": {
+        "name": "participant_connected",
+        "gcs_source": "gs://ccaip-iva-artifact-9a/iva-prober-gxjs4ra.ew1/metadata/call-987.json",
+        "payload": {
+          "call": {
+            "id": 987,
+            "type": "Voice Scheduled (API)",
+            "lang": "en"
+          },
+          "participant": {
+            "id": 2050,
+            "type": "end_user",
+            "entry_type": "queue_or_transfer",
+            "user_id": null,
+            "end_user_id": 42,
+            "virtual_agent_id": null,
+            "phone_number": "<REDACTED>",
+            "sip_headers": null,
+            "call_id": 987,
+            "hold_duration": null,
+            "agent_assist": null,
+            "virtual_agent": null
+          }
+        }
+      },
+      "message": "Milestone: participant_connected (call 987)"
+    },
+    "resource": {
+      "type": "contactcenteraiplatform.googleapis.com/ContactCenter",
+      "labels": {
+        "location": "europe-west1",
+        "resource_container": "ccaip-probing-infra-u8xi7u",
+        "resource_id": "iva"
+      }
+    },
+    "timestamp": "2026-01-24T01:14:17Z",
+    "severity": "INFO",
+    "logName": "projects/ccaip-probing-infra-u8xi7u/logs/contactcenteraiplatform.googleapis.com%2Fmetadata"
+  },
+  {
+    "insertId": "52e1726d15599fd38698576cc7644501",
+    "jsonPayload": {
+      "event": {
+        "name": "participant_left",
+        "gcs_source": "gs://ccaip-iva-artifact-9a/iva-prober-gxjs4ra.ew1/metadata/call-987.json",
+        "payload": {
+          "call": {
+            "id": 987,
+            "type": "Voice Scheduled (API)",
+            "lang": "en"
+          },
+          "participant": {
+            "id": 2050,
+            "type": "end_user",
+            "entry_type": "queue_or_transfer",
+            "user_id": null,
+            "end_user_id": 42,
+            "virtual_agent_id": null,
+            "status": "finished",
+            "fail_reason": "nothing",
+            "phone_number": "<REDACTED>",
+            "sip_headers": null,
+            "call_id": 987,
+            "call_duration": 8,
+            "hold_duration": null,
+            "agent_assist": null,
+            "virtual_agent": null,
+            "adapter_fail_code": null,
+            "adapter_fail_message": null
+          }
+        }
+      },
+      "message": "Milestone: participant_left (call 987)"
+    },
+    "resource": {
+      "type": "contactcenteraiplatform.googleapis.com/ContactCenter",
+      "labels": {
+        "location": "europe-west1",
+        "resource_container": "ccaip-probing-infra-u8xi7u",
+        "resource_id": "iva"
+      }
+    },
+    "timestamp": "2026-01-24T01:14:25Z",
+    "severity": "INFO",
+    "logName": "projects/ccaip-probing-infra-u8xi7u/logs/contactcenteraiplatform.googleapis.com%2Fmetadata"
+  },
+  {
+    "insertId": "36573bf97f243d5c6b59738a04d8e254",
+    "jsonPayload": {
+      "event": {
+        "name": "participant_connected",
+        "gcs_source": "gs://ccaip-iva-artifact-9a/iva-prober-gxjs4ra.ew1/metadata/call-987.json",
+        "payload": {
+          "call": {
+            "id": 987,
+            "type": "Voice Scheduled (API)",
+            "lang": "en"
+          },
+          "participant": {
+            "id": 2051,
+            "type": "agent",
+            "entry_type": "queue_or_transfer",
+            "user_id": 5,
+            "end_user_id": null,
+            "virtual_agent_id": null,
+            "sip_headers": null,
+            "location": {
+              "created_at": "2025-10-17T15:32:47Z",
+              "id": 2,
+              "lang": "en",
+              "location": "en-US",
+              "pop_settings": {
+                "twilio": [],
+                "nexmo": [],
+                "telnyx": []
+              },
+              "updated_at": "2025-10-17T15:32:47Z"
+            },
+            "location_id": 2,
+            "email": "<REDACTED>",
+            "first_name": "<REDACTED>",
+            "last_name": "<REDACTED>",
+            "middle_name": null,
+            "teams": [],
+            "call_id": 987,
+            "hold_duration": null,
+            "agent_assist": null,
+            "virtual_agent": null
+          }
+        }
+      },
+      "message": "Milestone: participant_connected (call 987)"
+    },
+    "resource": {
+      "type": "contactcenteraiplatform.googleapis.com/ContactCenter",
+      "labels": {
+        "location": "europe-west1",
+        "resource_container": "ccaip-probing-infra-u8xi7u",
+        "resource_id": "iva"
+      }
+    },
+    "timestamp": "2026-01-24T01:14:13Z",
+    "severity": "INFO",
+    "logName": "projects/ccaip-probing-infra-u8xi7u/logs/contactcenteraiplatform.googleapis.com%2Fmetadata"
+  },
+  {
+    "insertId": "b1ae9ea14033b2a230233cf66195ea33",
+    "jsonPayload": {
+      "event": {
+        "name": "participant_left",
+        "gcs_source": "gs://ccaip-iva-artifact-9a/iva-prober-gxjs4ra.ew1/metadata/call-987.json",
+        "payload": {
+          "call": {
+            "id": 987,
+            "type": "Voice Scheduled (API)",
+            "lang": "en"
+          },
+          "participant": {
+            "id": 2051,
+            "type": "agent",
+            "entry_type": "queue_or_transfer",
+            "user_id": 5,
+            "end_user_id": null,
+            "virtual_agent_id": null,
+            "status": "finished",
+            "fail_reason": "nothing",
+            "sip_headers": null,
+            "location": {
+              "created_at": "2025-10-17T15:32:47Z",
+              "id": 2,
+              "lang": "en",
+              "location": "en-US",
+              "pop_settings": {
+                "twilio": [],
+                "nexmo": [],
+                "telnyx": []
+              },
+              "updated_at": "2025-10-17T15:32:47Z"
+            },
+            "location_id": 2,
+            "email": "<REDACTED>",
+            "first_name": "<REDACTED>",
+            "last_name": "<REDACTED>",
+            "middle_name": null,
+            "teams": [],
+            "call_id": 987,
+            "call_duration": 12,
+            "hold_duration": null,
+            "agent_assist": null,
+            "virtual_agent": null,
+            "adapter_fail_code": null,
+            "adapter_fail_message": null
+          }
+        }
+      },
+      "message": "Milestone: participant_left (call 987)"
+    },
+    "resource": {
+      "type": "contactcenteraiplatform.googleapis.com/ContactCenter",
+      "labels": {
+        "location": "europe-west1",
+        "resource_container": "ccaip-probing-infra-u8xi7u",
+        "resource_id": "iva"
+      }
+    },
+    "timestamp": "2026-01-24T01:14:25Z",
+    "severity": "INFO",
+    "logName": "projects/ccaip-probing-infra-u8xi7u/logs/contactcenteraiplatform.googleapis.com%2Fmetadata"
+  },
+  {
+    "insertId": "37a16e9e808d60ecf8150172d9e8a450",
+    "jsonPayload": {
+      "event": {
+        "name": "recording_started",
+        "gcs_source": "gs://ccaip-iva-artifact-9a/iva-prober-gxjs4ra.ew1/metadata/call-987.json",
+        "payload": {
+          "call": {
+            "id": 987,
+            "type": "Voice Scheduled (API)",
+            "lang": "en"
+          },
+          "recording_id": 903,
+          "recording_type": "default",
+          "recording": {
+            "id": 903,
+            "call_id": 987,
+            "conference_sid": "CON-a4c2a629-3ee5-48f7-89ca-044c913a7cbf",
+            "recording_type": "default",
+            "redaction_times": []
+          }
+        }
+      },
+      "message": "Milestone: recording_started (call 987)"
+    },
+    "resource": {
+      "type": "contactcenteraiplatform.googleapis.com/ContactCenter",
+      "labels": {
+        "location": "europe-west1",
+        "resource_container": "ccaip-probing-infra-u8xi7u",
+        "resource_id": "iva"
+      }
+    },
+    "timestamp": "2026-01-24T01:14:12Z",
+    "severity": "INFO",
+    "logName": "projects/ccaip-probing-infra-u8xi7u/logs/contactcenteraiplatform.googleapis.com%2Fmetadata"
+  },
+  {
+    "insertId": "ee0d9b0eed1b53ac69565fbaf9ad385d",
+    "jsonPayload": {
+      "event": {
+        "name": "queue_entry_started",
+        "gcs_source": "gs://ccaip-iva-artifact-9a/iva-prober-gxjs4ra.ew1/metadata/call-987.json",
+        "payload": {
+          "call": {
+            "id": 987,
+            "type": "Voice Scheduled (API)",
+            "lang": "en"
+          },
+          "queue_entry": {
+            "id": 195,
+            "lang": "en",
+            "menu_path_id": 83,
+            "menu_path": "schedule_call",
+            "service_level_abandon_time_threshold": 0,
+            "service_level_target_percent": 90,
+            "service_level_target_time": 60
+          }
+        }
+      },
+      "message": "Milestone: queue_entry_started (call 987)"
+    },
+    "resource": {
+      "type": "contactcenteraiplatform.googleapis.com/ContactCenter",
+      "labels": {
+        "location": "europe-west1",
+        "resource_container": "ccaip-probing-infra-u8xi7u",
+        "resource_id": "iva"
+      }
+    },
+    "timestamp": "2026-01-24T01:14:00Z",
+    "severity": "INFO",
+    "logName": "projects/ccaip-probing-infra-u8xi7u/logs/contactcenteraiplatform.googleapis.com%2Fmetadata"
+  },
+  {
+    "insertId": "ca67f96552a03609afe538558a2b074a",
+    "jsonPayload": {
+      "event": {
+        "name": "queue_entry_completed",
+        "gcs_source": "gs://ccaip-iva-artifact-9a/iva-prober-gxjs4ra.ew1/metadata/call-987.json",
+        "payload": {
+          "call": {
+            "id": 987,
+            "type": "Voice Scheduled (API)",
+            "lang": "en"
+          },
+          "queue_entry": {
+            "id": 195,
+            "agent_id": 5,
+            "lang": "en",
+            "menu_path_id": 83,
+            "menu_path": "schedule_call",
+            "queue_duration": 6,
+            "transfer_cold": null,
+            "transfer": false,
+            "transfer_id": null,
+            "service_level_abandon_time_threshold": 0,
+            "service_level_event": "in_sla",
+            "service_level_target_percent": 90,
+            "service_level_target_time": 60
+          }
+        }
+      },
+      "message": "Milestone: queue_entry_completed (call 987)"
+    },
+    "resource": {
+      "type": "contactcenteraiplatform.googleapis.com/ContactCenter",
+      "labels": {
+        "location": "europe-west1",
+        "resource_container": "ccaip-probing-infra-u8xi7u",
+        "resource_id": "iva"
+      }
+    },
+    "timestamp": "2026-01-24T01:14:06Z",
+    "severity": "INFO",
+    "logName": "projects/ccaip-probing-infra-u8xi7u/logs/contactcenteraiplatform.googleapis.com%2Fmetadata"
+  },
+  {
+    "insertId": "758e629e534da30f43b0903139d1dc96",
+    "jsonPayload": {
+      "event": {
+        "name": "agent_handle_started",
+        "gcs_source": "gs://ccaip-iva-artifact-9a/iva-prober-gxjs4ra.ew1/metadata/call-987.json",
+        "payload": {
+          "call": {
+            "id": 987,
+            "type": "Voice Scheduled (API)",
+            "lang": "en"
+          },
+          "agent_handle": {
+            "id": 219,
+            "agent_id": 5,
+            "menu_path_id": 83,
+            "menu_path": "schedule_call",
+            "lang": "en",
+            "barged": false,
+            "transfer": false,
+            "transfer_id": null,
+            "transfer_cold": null,
+            "scheduled_at": "2026-01-24T01:14:00Z",
+            "assigned_connection_duration": 7
+          }
+        }
+      },
+      "message": "Milestone: agent_handle_started (call 987)"
+    },
+    "resource": {
+      "type": "contactcenteraiplatform.googleapis.com/ContactCenter",
+      "labels": {
+        "location": "europe-west1",
+        "resource_container": "ccaip-probing-infra-u8xi7u",
+        "resource_id": "iva"
+      }
+    },
+    "timestamp": "2026-01-24T01:14:13Z",
+    "severity": "INFO",
+    "logName": "projects/ccaip-probing-infra-u8xi7u/logs/contactcenteraiplatform.googleapis.com%2Fmetadata"
+  },
+  {
+    "insertId": "d211bc5c1dde2f16044d280400a2fb18",
+    "jsonPayload": {
+      "event": {
+        "name": "agent_handle_completed",
+        "gcs_source": "gs://ccaip-iva-artifact-9a/iva-prober-gxjs4ra.ew1/metadata/call-987.json",
+        "payload": {
+          "call": {
+            "id": 987,
+            "type": "Voice Scheduled (API)",
+            "lang": "en"
+          },
+          "agent_handle": {
+            "id": 219,
+            "agent_id": 5,
+            "acw_duration": 0,
+            "bcw_duration": 0,
+            "call_duration": 12,
+            "menu_path_id": 83,
+            "menu_path": "schedule_call",
+            "lang": "en",
+            "barged": false,
+            "transfer": false,
+            "transfer_id": null,
+            "transfer_cold": null,
+            "scheduled_at": "2026-01-24T01:14:00Z",
+            "hold_duration": 0,
+            "assigned_connection_duration": 7
+          }
+        }
+      },
+      "message": "Milestone: agent_handle_completed (call 987)"
+    },
+    "resource": {
+      "type": "contactcenteraiplatform.googleapis.com/ContactCenter",
+      "labels": {
+        "location": "europe-west1",
+        "resource_container": "ccaip-probing-infra-u8xi7u",
+        "resource_id": "iva"
+      }
+    },
+    "timestamp": "2026-01-24T01:14:25Z",
+    "severity": "INFO",
+    "logName": "projects/ccaip-probing-infra-u8xi7u/logs/contactcenteraiplatform.googleapis.com%2Fmetadata"
+  }
+]

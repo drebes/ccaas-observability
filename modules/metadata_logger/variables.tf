@@ -1,0 +1,58 @@
+# Copyright 2026 Google LLC
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+variable "storage_project_id" {
+  type        = string
+  description = "The Google Cloud project ID hosting GCS, Eventarc, and Cloud Run."
+}
+
+variable "region" {
+  type        = string
+  description = "The region to deploy the Cloud Run service."
+  default     = "us-central1"
+}
+
+variable "gcs_path_configs" {
+  type = map(object({
+    ccaas_project_id        = string
+    ccaas_resource_location = string
+    ccaas_resource_id       = string
+  }))
+  description = "A map of GCS path URIs (e.g., 'gs://bucket/path/') to their target logging configurations."
+}
+
+variable "image_url" {
+  type        = string
+  description = "The container image path in Artifact Registry (e.g., us-central1-docker.pkg.dev/my-project/my-repo/metadata-logger:latest)."
+}
+
+variable "custom_log_name" {
+  type        = string
+  description = "The identifier for custom logs."
+  default     = "contactcenteraiplatform.googleapis.com%2Fmetadata"
+}
+
+variable "grant_project_iam_roles" {
+  type        = bool
+  description = "Whether to let the module automatically create the project-level IAM role bindings for GCS, Eventarc, and logging. Set to false if these are managed externally (e.g., via a project factory)."
+  default     = true
+}
+
+variable "enable_apis" {
+  type        = bool
+  description = "Whether to let the module automatically enable necessary Google Cloud service APIs (run, eventarc, logging, storage, pubsub). Set to false if these are managed externally (e.g., via a project factory)."
+  default     = true
+}
+
+
