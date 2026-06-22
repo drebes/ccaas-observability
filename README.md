@@ -29,7 +29,7 @@ project.
 *   `df_dashboard`: Creates logs-based metrics and a dashboard to monitor
     Dialogflow-specific metrics, including Flow execution, Playbook usage, and
     Sentiment Analysis.
-*   `metadata_logger`: Sets up the Cloud Run service, Eventarc trigger, GCS permissions, and project IAM roles to ingest and parse session metadata uploads into structured milestone logs.
+*   `metadata_logger`: Sets up the Cloud Run service, Eventarc trigger, GCS permissions, and project IAM roles to ingest and parse session metadata uploads into structured milestone logs. *(Optional, conditionally enabled via `enable_metadata_logger`)*
 
 ## Creating the Dashboards and Metrics
 
@@ -44,8 +44,9 @@ project.
         "Current Established Call Rate" gauge in the Calls dashboard.
     *   `escalated_chat_rate_upper_bound`: (number) The upper bound for the
         "Current Escalated Chat Rate" gauge in the Chats dashboard.
+    *   `enable_metadata_logger`: (boolean, optional) Whether to deploy the metadata logger. Defaults to `false`.
     *   `metadata_logger`: (object) The configuration object for deploying the
-        metadata milestone logger. This contains:
+        metadata milestone logger. This is only required if `enable_metadata_logger` is set to `true`. This contains:
         *   `storage_project_id`: (string) The GCP project ID hosting the central prober GCS buckets, Eventarc trigger, and Cloud Run service.
         *   `region`: (string) Location for the Cloud Run deployment (e.g. `"europe-west1"`).
         *   `image_url`: (string) The Artifact Registry URI of the compiled container image (e.g. `"europe-docker.pkg.dev/.../metadata-logger:latest"`).
@@ -69,7 +70,10 @@ project.
     established_call_rate_upper_bound = 100
     escalated_chat_rate_upper_bound   = 100
 
-    # Metadata Logger configuration
+    # Set to true to deploy the metadata logger (defaults to false)
+    enable_metadata_logger = true
+
+    # Metadata Logger configuration (only required if enable_metadata_logger is true)
     metadata_logger = {
       storage_project_id = "<PROBER_GCP_PROJECT_ID>"
       region             = "europe-west1"

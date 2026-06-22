@@ -42,6 +42,7 @@ module "ccaas_log_analytics_dashboard" {
 }
 
 module "metadata_logger" {
+  count                   = var.enable_metadata_logger ? 1 : 0
   source                  = "./modules/metadata_logger"
   storage_project_id      = var.metadata_logger.storage_project_id
   region                  = var.metadata_logger.region
