@@ -29,7 +29,7 @@ project.
 *   `df_dashboard`: Creates logs-based metrics and a dashboard to monitor
     Dialogflow-specific metrics, including Flow execution, Playbook usage, and
     Sentiment Analysis.
-*   `metadata_logger`: Sets up the Cloud Run service, Eventarc trigger, GCS permissions, and project IAM roles to ingest and parse session metadata uploads into structured milestone logs. *(Optional, conditionally enabled via `enable_metadata_logger`)*
+*   `metadata_logger`: Sets up the Cloud Run service, Eventarc or Pub/Sub trigger, GCS permissions, and project IAM roles to ingest and parse session metadata uploads into structured milestone logs. *(Optional, conditionally enabled via `enable_metadata_logger`)*
 
 ## Creating the Dashboards and Metrics
 
@@ -47,11 +47,13 @@ project.
     *   `enable_metadata_logger`: (boolean, optional) Whether to deploy the metadata logger. Defaults to `false`.
     *   `metadata_logger`: (object) The configuration object for deploying the
         metadata milestone logger. This is only required if `enable_metadata_logger` is set to `true`. This contains:
-        *   `storage_project_id`: (string) The GCP project ID hosting the central prober GCS buckets, Eventarc trigger, and Cloud Run service.
+        *   `storage_project_id`: (string) The GCP project ID hosting the central prober GCS buckets, Eventarc/Pub/Sub trigger resources, and Cloud Run service.
         *   `region`: (string) Location for the Cloud Run deployment (e.g. `"europe-west1"`).
         *   `image_url`: (string) The Artifact Registry URI of the compiled container image (e.g. `"europe-docker.pkg.dev/.../metadata-logger:latest"`).
         *   `custom_log_name`: (string, optional) Override log name for extracted milestones in Cloud Logging (defaults to `"<PROJECT_ID>/logs/contactcenteraiplatform.googleapis.com%2Fmetadata"`).
         *   `path_configs`: (map of object) A mapping of source GCS path URIs (e.g., `"gs://bucket/path/"`) to target Contact Center resources (with `ccaas_project_id`, `ccaas_resource_location`, and `ccaas_resource_id`).
+        *   `trigger_type`: (string, optional) The trigger type to use for GCS events (`"eventarc"` or `"pubsub"`). Defaults to `"eventarc"`. Use `"pubsub"` for dual-region buckets (e.g., Canada) or advanced reliability features.
+        *   `service_name`: (string, optional) The name of the Cloud Run service. Defaults to `"metadata-logger"`.
 
     Optional variables:
 

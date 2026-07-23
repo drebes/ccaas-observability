@@ -1,12 +1,26 @@
 # Metadata Logger Terraform Module
 
-This module deploys a lightweight, secure Cloud Run service (written in Python) and Eventarc GCS direct triggers inside a source GCS bucket project. It listens for file creations in your storage buckets, filters for metadata JSON objects matching custom path patterns, downloads the files, and logs parsed milestones back to Google Cloud Logging in a single, high-performance batch call.
+This module deploys a lightweight, secure Cloud Run service (written in Python) and either Eventarc GCS direct triggers or Pub/Sub GCS notifications inside a source GCS bucket project. It listens for file creations in your storage buckets, filters for metadata JSON objects matching custom path patterns, downloads the files, and logs parsed milestones back to Google Cloud Logging in a single, high-performance batch call.
 
 ---
 
 ## Architecture Design
 
-*   **Direct Eventarc GCS Triggers:** Listens to GCS `object.v1.finalized` events directly within the storage project scope, avoiding Pub/Sub topic and transport layer overhead.
+This module supports two types of ingestion triggers for GCS events:
+
+*   **Direct Eventarc GCS Triggers (Default):** Listens to GCS `object.v1.finalized` events directly within the storage project scope. This is the simplest configuration, avoiding manual Pub/Sub topic and transport layer overhead.
+*   **Pub/Sub Triggers:** Uses GCS Bucket Notifications to publish events to a Pub/Sub topic, which triggers the Cloud Run service via a Push Subscription.
+
+### Choosing a Trigger Type
+
+While Eventarc is simpler to set up, you should prefer the **Pub/Sub trigger** in the following scenarios:
+
+1.  **Dual-Region Buckets (e.g., Canada):** Eventarc GCS triggers currently do not support GCS buckets located in dual-regions (such as the Canada dual-region setup using `northamerica-northeast1` and `northamerica-northeast2`). Pub/Sub notifications must be used for these configurations.
+2.  **Disaster Recovery & Cross-Region Routing:** Pub/Sub is a global service, allowing you to easily route events across different regions or consolidate events from multiple regional buckets into a single topic for DR failover scenarios.
+3.  **Advanced Reliability & Replay:** Pub/Sub allows you to configure a **Dead Letter Queue (DLQ)** on the subscription to isolate failing events, and customize retry backoff and message retention (up to 7 days) for replaying events after service recovery.
+
+### Key Features (Common to both)
+
 *   **Customizable Path Patterns (Per-Bucket):** Filters events at the application layer using user-configured GCS subfolder patterns (e.g. `"/metadata/"`) to only process files of interest and ignore other GCS uploads (like voice recordings).
 *   **Flexible Logging Target:** By default, writes logs to the local project. Alternatively, can write directly to a central Observability project via a single parameter update and cross-project IAM assignment.
 
@@ -76,6 +90,8 @@ gcloud projects add-iam-policy-binding <CENTRAL_OBSERVABILITY_PROJECT_ID> \
 | **custom_log_name** | `string` | The identifier for custom logs. | `"contactcenteraiplatform.googleapis.com%2Fmetadata"` | no |
 | **grant_project_iam_roles** | `bool` | Whether to let the module automatically create project-level IAM role bindings. | `true` | no |
 | **enable_apis** | `bool` | Whether to let the module automatically enable necessary Google Cloud service APIs (run, eventarc, logging, storage, pubsub). | `true` | no |
+| **trigger_type** | `string` | The trigger type to use for GCS events. Supported values: `eventarc`, `pubsub`. | `"eventarc"` | no |
+| **service_name** | `string` | The name of the Cloud Run service and prefix for related resources. | `"metadata-logger"` | no |
 
 ## Outputs
 
@@ -90,17 +106,19 @@ gcloud projects add-iam-policy-binding <CENTRAL_OBSERVABILITY_PROJECT_ID> \
 
 In many production environments (especially enterprise landing zones or environments managed by a **Project Factory**), project-level IAM role assignments are strictly controlled and must not be managed inside application-level submodules.
 
-If you set `grant_project_iam_roles = false`, the module will skip provisioning these three project-level bindings. You (or your Project Factory/CI/CD pipelines) must explicitly assign these three roles:
+If you set `grant_project_iam_roles = false`, the module will skip provisioning project-level bindings. You must manually assign:
 
-1. **GCS Service Agent Pub/Sub Publisher:**
-   * **Role:** `roles/pubsub.publisher` on the GCS project.
-   * **Member:** GCS Service Account `service-STORAGE_PROJECT_NUMBER@gs-project-accounts.iam.gserviceaccount.com` (can be fetched using the standard GCP storage service account lookup).
-2. **Eventarc Receiver Role:**
-   * **Role:** `roles/eventarc.eventReceiver` on the GCS project.
-   * **Member:** Eventarc Trigger Service Account `metadata-logger-trigger-sa@<STORAGE_PROJECT_ID>.iam.gserviceaccount.com`.
-3. **Cloud Run Log Writer:**
+1. **Cloud Run Log Writer (Required for both triggers):**
    * **Role:** `roles/logging.logWriter` on the target logging project.
-   * **Member:** Cloud Run Runtime Service Account `metadata-logger-run-sa@<STORAGE_PROJECT_ID>.iam.gserviceaccount.com`.
+   * **Member:** Cloud Run Runtime Service Account `${service_name}-run-sa@<STORAGE_PROJECT_ID>.iam.gserviceaccount.com`.
+
+2. **GCS Service Agent Pub/Sub Publisher (Only for Eventarc trigger):**
+   * **Role:** `roles/pubsub.publisher` on the GCS project.
+   * **Member:** GCS Service Account `service-STORAGE_PROJECT_NUMBER@gs-project-accounts.iam.gserviceaccount.com`.
+
+3. **Eventarc Receiver Role (Only for Eventarc trigger):**
+   * **Role:** `roles/eventarc.eventReceiver` on the GCS project.
+   * **Member:** Eventarc Trigger Service Account `${service_name}-trigger-sa@<STORAGE_PROJECT_ID>.iam.gserviceaccount.com`.
 
 ---
 

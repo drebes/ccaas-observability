@@ -1,6 +1,6 @@
 # Metadata Logging Service
 
-This folder contains the source code, build scripts, and test suites for the Metadata Logger service. The service is designed to run in a Cloud Run container, receiving Google Cloud Storage (GCS) upload events via Eventarc, extracting contact center milestones from metadata JSONs, and writing formatted milestone log entries back to Google Cloud Logging.
+This folder contains the source code, build scripts, and test suites for the Metadata Logger service. The service is designed to run in a Cloud Run container, receiving Google Cloud Storage (GCS) upload events via Eventarc or Pub/Sub, extracting contact center milestones from metadata JSONs, and writing formatted milestone log entries back to Google Cloud Logging.
 
 ---
 
