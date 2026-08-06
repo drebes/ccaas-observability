@@ -14,6 +14,7 @@
 
 import os
 import json
+import base64
 import logging
 import datetime
 from flask import Flask, request
@@ -78,9 +79,22 @@ def parse_timestamp(ts_str):
 
 @app.route("/", methods=["POST"])
 def handle_event():
-    """Handles incoming Eventarc GCS object-finalized payloads."""
-    # Read GCS event details
-    event_data = request.get_json(silent=True) or {}
+    """Handles incoming Eventarc GCS object-finalized payloads or Pub/Sub push messages."""
+    payload = request.get_json(silent=True) or {}
+    
+    # Auto-detect Pub/Sub envelope
+    if "message" in payload and "data" in payload["message"]:
+        logger.info("Received Pub/Sub push message envelope")
+        try:
+            pubsub_message = payload["message"]
+            decoded_data = base64.b64decode(pubsub_message["data"]).decode("utf-8")
+            event_data = json.loads(decoded_data)
+        except Exception as e:
+            logger.error(f"Failed to decode Pub/Sub payload: {e}")
+            return f"Failed to decode Pub/Sub payload: {e}", 400
+    else:
+        # Assume direct Eventarc GCS payload
+        event_data = payload
     
     bucket_name = event_data.get("bucket")
     object_name = event_data.get("name")

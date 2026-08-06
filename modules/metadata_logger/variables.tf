@@ -55,4 +55,22 @@ variable "enable_apis" {
   default     = true
 }
 
+variable "trigger_type" {
+  type        = string
+  description = "The trigger type to use for GCS events. Supported values: 'eventarc', 'pubsub'."
+  default     = "eventarc"
+  validation {
+    condition     = contains(["eventarc", "pubsub"], var.trigger_type)
+    error_message = "The trigger_type must be either 'eventarc' or 'pubsub'."
+  }
+}
 
+variable "service_name" {
+  type        = string
+  description = "The name of the Cloud Run service and prefix for related resources."
+  default     = "metadata-logger"
+  validation {
+    condition     = length(var.service_name) <= 20
+    error_message = "The service_name must be 20 characters or less to avoid exceeding SA name limits."
+  }
+}

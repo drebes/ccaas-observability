@@ -33,7 +33,7 @@ locals {
 
 # Lookup GCS buckets to fetch their location dynamically
 data "google_storage_bucket" "monitored_buckets" {
-  for_each = toset(local.unique_buckets)
+  for_each = var.trigger_type == "eventarc" ? toset(local.unique_buckets) : []
   name     = each.value
 }
 
@@ -56,7 +56,7 @@ resource "google_project_service" "services" {
 # Runtime Service Account for Cloud Run
 resource "google_service_account" "metadata_logger_sa" {
   project      = var.storage_project_id
-  account_id   = "metadata-logger-run-sa"
+  account_id   = "${var.service_name}-run-sa"
   display_name = "Metadata Logger Cloud Run Runtime SA"
 }
 
@@ -78,17 +78,18 @@ resource "google_project_iam_member" "logging_log_writer" {
 
 # Eventarc Trigger Service Account
 resource "google_service_account" "eventarc_trigger_sa" {
+  count        = var.trigger_type == "eventarc" ? 1 : 0
   project      = var.storage_project_id
-  account_id   = "metadata-logger-trigger-sa"
+  account_id   = "${var.service_name}-trigger-sa"
   display_name = "Metadata Logger Eventarc Trigger SA"
 }
 
 # Grant Event Receiver role to Eventarc SA
 resource "google_project_iam_member" "eventarc_receiver" {
-  count   = var.grant_project_iam_roles ? 1 : 0
+  count   = (var.trigger_type == "eventarc" && var.grant_project_iam_roles) ? 1 : 0
   project = var.storage_project_id
   role    = "roles/eventarc.eventReceiver"
-  member  = "serviceAccount:${google_service_account.eventarc_trigger_sa.email}"
+  member  = "serviceAccount:${one(google_service_account.eventarc_trigger_sa[*].email)}"
 }
 
 # Grant GCS service agent Pub/Sub Publisher role (required by direct Eventarc GCS triggers)
@@ -97,7 +98,7 @@ data "google_storage_project_service_account" "gcs_account" {
 }
 
 resource "google_project_iam_member" "gcs_pubsub_publisher" {
-  count   = var.grant_project_iam_roles ? 1 : 0
+  count   = (var.trigger_type == "eventarc" && var.grant_project_iam_roles) ? 1 : 0
   project = var.storage_project_id
   role    = "roles/pubsub.publisher"
   member  = "serviceAccount:${data.google_storage_project_service_account.gcs_account.email_address}"
@@ -105,7 +106,7 @@ resource "google_project_iam_member" "gcs_pubsub_publisher" {
 
 # Cloud Run service instance
 resource "google_cloud_run_v2_service" "metadata_logger" {
-  name     = "metadata-logger"
+  name     = var.service_name
   project  = var.storage_project_id
   location = var.region
   deletion_protection = false
@@ -159,16 +160,17 @@ resource "google_cloud_run_v2_service" "metadata_logger" {
 
 # Grant Invoker access to Eventarc trigger Service Account on Cloud Run
 resource "google_cloud_run_v2_service_iam_member" "eventarc_invoker" {
+  count    = var.trigger_type == "eventarc" ? 1 : 0
   project  = var.storage_project_id
   location = var.region
   name     = google_cloud_run_v2_service.metadata_logger.name
   role     = "roles/run.invoker"
-  member   = "serviceAccount:${google_service_account.eventarc_trigger_sa.email}"
+  member   = "serviceAccount:${one(google_service_account.eventarc_trigger_sa[*].email)}"
 }
 
 # Eventarc triggers mapping one-to-one to target buckets
 resource "google_eventarc_trigger" "gcs_trigger" {
-  for_each = toset(local.unique_buckets)
+  for_each = var.trigger_type == "eventarc" ? toset(local.unique_buckets) : []
 
   name     = "md-log-tr-${substr(replace(each.value, ".", "-"), 0, 40)}-${substr(md5(each.value), 0, 4)}"
   location = lower(data.google_storage_bucket.monitored_buckets[each.value].location)
@@ -194,11 +196,76 @@ resource "google_eventarc_trigger" "gcs_trigger" {
     }
   }
 
-  service_account = google_service_account.eventarc_trigger_sa.email
+  service_account = one(google_service_account.eventarc_trigger_sa[*].email)
 
   depends_on = [
     google_project_service.services,
     google_project_iam_member.gcs_pubsub_publisher,
     google_cloud_run_v2_service_iam_member.eventarc_invoker
   ]
+}
+
+# --- Pub/Sub Trigger Resources ---
+
+# Service Account for Pub/Sub subscription to invoke Cloud Run
+resource "google_service_account" "pubsub_invoker_sa" {
+  count        = var.trigger_type == "pubsub" ? 1 : 0
+  project      = var.storage_project_id
+  account_id   = "${var.service_name}-pubsub-sa"
+  display_name = "Metadata Logger Pub/Sub Invoker SA"
+}
+
+# Grant Invoker access to Pub/Sub SA on Cloud Run
+resource "google_cloud_run_v2_service_iam_member" "pubsub_invoker" {
+  count    = var.trigger_type == "pubsub" ? 1 : 0
+  project  = var.storage_project_id
+  location = var.region
+  name     = google_cloud_run_v2_service.metadata_logger.name
+  role     = "roles/run.invoker"
+  member   = "serviceAccount:${one(google_service_account.pubsub_invoker_sa[*].email)}"
+}
+
+# Pub/Sub Topics (one per bucket)
+resource "google_pubsub_topic" "gcs_notification_topic" {
+  for_each = var.trigger_type == "pubsub" ? toset(local.unique_buckets) : []
+  name     = "gcs-meta-topic-${substr(replace(each.value, ".", "-"), 0, 40)}-${substr(md5(each.value), 0, 4)}"
+  project  = var.storage_project_id
+}
+
+# Grant GCS service agent Pub/Sub Publisher role on the topic
+resource "google_pubsub_topic_iam_member" "gcs_publisher" {
+  for_each = var.trigger_type == "pubsub" ? toset(local.unique_buckets) : []
+  project  = var.storage_project_id
+  topic    = google_pubsub_topic.gcs_notification_topic[each.value].name
+  role     = "roles/pubsub.publisher"
+  member   = "serviceAccount:${data.google_storage_project_service_account.gcs_account.email_address}"
+}
+
+# GCS Bucket Notifications to Pub/Sub
+resource "google_storage_notification" "gcs_notification" {
+  for_each       = var.trigger_type == "pubsub" ? toset(local.unique_buckets) : []
+  bucket         = each.value
+  payload_format = "JSON_API_V1"
+  topic          = google_pubsub_topic.gcs_notification_topic[each.value].id
+  event_types    = ["OBJECT_FINALIZE"]
+
+  depends_on = [google_pubsub_topic_iam_member.gcs_publisher]
+}
+
+# Pub/Sub Push Subscriptions to Cloud Run
+resource "google_pubsub_subscription" "push_subscription" {
+  for_each = var.trigger_type == "pubsub" ? toset(local.unique_buckets) : []
+  name     = "gcs-meta-sub-${substr(replace(each.value, ".", "-"), 0, 40)}-${substr(md5(each.value), 0, 4)}"
+  project  = var.storage_project_id
+  topic    = google_pubsub_topic.gcs_notification_topic[each.value].name
+
+  ack_deadline_seconds = 60
+
+  push_config {
+    push_endpoint = "${google_cloud_run_v2_service.metadata_logger.uri}/"
+
+    oidc_token {
+      service_account_email = one(google_service_account.pubsub_invoker_sa[*].email)
+    }
+  }
 }
